@@ -39,7 +39,7 @@ To build and deploy your application for the first time, run the following in yo
 
 ```bash
 sam build
-sam deploy --guided
+sam deploy
 ```
 
 The first command will build the source of your application. The second command will package and deploy your application to AWS, with a series of prompts:
@@ -84,7 +84,7 @@ The SAM CLI reads the application template to determine the API's routes and the
         User:
           Type: Api
           Properties:
-            Path: /hello
+            Path: /users
             Method: get
 ```
 
@@ -124,4 +124,3 @@ aws cloudformation delete-stack --stack-name user-app
 
 See the [AWS SAM developer guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) for an introduction to SAM specification, the SAM CLI, and serverless application concepts.
 
-Next, you can use AWS Serverless Application Repository to deploy ready to use Apps that go beyond hello world samples and learn how authors developed their applications: [AWS Serverless Application Repository main page](https://aws.amazon.com/serverless/serverlessrepo/)

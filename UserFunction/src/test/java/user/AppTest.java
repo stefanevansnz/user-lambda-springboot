@@ -19,7 +19,7 @@ public class AppTest {
     String content = result.getBody();
     assertNotNull(content);
     assertTrue(content.contains("\"message\""));
-    assertTrue(content.contains("\"hello world\""));
+    assertTrue(content.contains("\"users\""));
     assertTrue(content.contains("\"location\""));
   }
 }
