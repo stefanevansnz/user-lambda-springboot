@@ -10,38 +10,32 @@ Globals:
   Api:
     # API Gateway regional endpoints
     EndpointConfiguration: REGIONAL
-  Function:
-    Timeout: 20
-    MemorySize: 128
 
 Resources:
   UserFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: UserFunction
-      Handler: user.App::handleRequest
+      Handler: user.StreamLambdaHandler::handleRequest
       Runtime: java8
+      CodeUri: UserFunction   
       Architectures:
         - x86_64
-      MemorySize: 512
+      MemorySize: 1512
       Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
         Variables:
           PARAM1: VALUE
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1 # More info about tiered compilation https://aws.amazon.com/blogs/compute/optimizing-aws-lambda-function-performance-for-java/
+      Timeout: 60          
       Events:
-        User:
-          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+        HttpApiEvent:
+          Type: HttpApi
           Properties:
-            Path: /users
-            Method: get
-
+            TimeoutInMillis: 20000
+            PayloadFormatVersion: '1.0'
 Outputs:
-  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
-  # Find out more about other implicit resources you can reference within SAM
-  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
   UserApi:
     Description: "API Gateway endpoint URL for Prod stage for User function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/users/"
+    Value: !Sub "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/users/"
   UserFunction:
     Description: "User Lambda Function ARN"
     Value: !GetAtt UserFunction.Arn
