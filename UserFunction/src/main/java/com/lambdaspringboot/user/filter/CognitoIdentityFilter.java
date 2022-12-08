@@ -1,4 +1,4 @@
-package main.java.user.filter;
+package com.lambdaspringboot.user.filter;
 
 import com.amazonaws.serverless.proxy.RequestReader;
 import com.amazonaws.serverless.proxy.model.AwsProxyRequestContext;

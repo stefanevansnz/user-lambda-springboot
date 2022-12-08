@@ -1,7 +1,4 @@
-package main.java.user.controller;
-
-import main.java.user.model.User;
-import main.java.user.model.UserData;
+package com.lambdaspringboot.user.controller;
 
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +6,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import com.lambdaspringboot.user.model.User;
+import com.lambdaspringboot.user.model.UserData;
 
 import java.security.Principal;
 import java.util.Optional;

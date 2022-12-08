@@ -1,4 +1,4 @@
-package user;
+package com.lambdaspringboot.user;
 
 import com.amazonaws.serverless.exceptions.ContainerInitializationException;
 import com.amazonaws.serverless.proxy.internal.testutils.Timer;
@@ -6,7 +6,7 @@ import com.amazonaws.serverless.proxy.model.AwsProxyRequest;
 import com.amazonaws.serverless.proxy.model.AwsProxyResponse;
 import com.amazonaws.serverless.proxy.spring.SpringBootLambdaContainerHandler;
 
-import main.java.user.filter.CognitoIdentityFilter;
+import com.lambdaspringboot.user.filter.CognitoIdentityFilter;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
