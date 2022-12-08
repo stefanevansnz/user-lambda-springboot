@@ -18,7 +18,7 @@ import java.util.UUID;
 @EnableWebMvc
 public class UserController {
 
-    @RequestMapping(path = "/Prod/users", method = RequestMethod.GET)
+    @RequestMapping(path = "/Prod/getrandomuser", method = RequestMethod.GET)
     public User[] listUsers(@RequestParam("limit") Optional<Integer> limit, Principal principal) {
         int queryLimit = 1;
         if (limit.isPresent()) {
