@@ -19,7 +19,7 @@ public class UserData {
         names.add("bowlingnet822");
         names.add("runningbat326");
         names.add("cyclingnet221");
-        names.add("trailyoga233");
+        names.add("trailyoga234");
     } 
     
     public static List<String> getNames() {
